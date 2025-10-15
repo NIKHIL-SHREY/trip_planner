@@ -1,3 +1,19 @@
+import os
+import streamlit as st
+from dotenv import load_dotenv
+
+# Load environment variables - works both locally and in production
+if os.path.exists('.env'):
+    load_dotenv()
+
+# Production configuration
+if 'STREAMLIT_DEPLOY' in os.environ:
+    # Production settings
+    DEBUG = False
+else:
+    # Local development
+    DEBUG = True
+
 import streamlit as st
 import json
 from datetime import datetime, timedelta, date
